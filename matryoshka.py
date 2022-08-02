@@ -34,12 +34,13 @@ def main(argv):
             debug = True
         elif opt in ("-i", "--infile"): #Infile option
             infile = arg
-            if debug: print("DEBUG INFO: Input file name is " + infile)
-    
+            if debug:
+                print(f"DEBUG INFO: Input file name is {infile}")
+
     if infile == "": # Exit if no infile is specified
         help()
         sys.exit(1)
-    
+
     #THIS TAR STUFF IS JUST HERE FOR TESTING RIGHT NOW
     #TODO: MOVE TO SEPERATE CLASS
     checkType(infile)
@@ -52,8 +53,9 @@ def main(argv):
 
 
 def checkType(archiveName): # Uses libmagic to determine filetype via path to file
-    archiveType = magic.from_file(archiveName, mime=True)
-    if debug: print ("File {0} found to be type {1}".format(archiveName, archiveType))
+    if debug:
+        archiveType = magic.from_file(archiveName, mime=True)
+        print ("File {0} found to be type {1}".format(archiveName, archiveType))
     
 
     
